@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naïve Bayes Sentiment Classifier</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>Naïve Bayes Sentiment Classifier</h1>
+      <p class="subtitle">
+        Built from scratch — no ML libraries. Type any text and see exactly
+        which words drive the prediction and why.
+      </p>
+    </header>
+
+    <!-- Input -->
+    <section class="input-section">
+      <textarea
+        id="input-text"
+        placeholder="Type a movie or product review..."
+        rows="4"
+      ></textarea>
+      <button id="classify-btn">Classify</button>
+    </section>
+
+    <!-- Result banner -->
+    <section class="result-banner hidden" id="result-banner">
+      <div class="label" id="result-label">positive</div>
+      <div class="confidence" id="result-confidence"></div>
+
+      <!-- Probability bar -->
+      <div class="prob-bar-wrapper">
+        <div class="prob-bar-label">negative</div>
+        <div class="prob-bar-track">
+          <div class="prob-bar-fill negative" id="bar-negative"></div>
+          <div class="prob-bar-fill positive" id="bar-positive"></div>
+        </div>
+        <div class="prob-bar-label">positive</div>
+      </div>
+    </section>
+
+    <!-- Word evidence table -->
+    <section class="evidence-section hidden" id="evidence-section">
+      <h2>Word Evidence</h2>
+      <p class="evidence-explainer">
+        Each word's <strong>log-likelihood ratio</strong> shows how much it
+        pushed the prediction. Positive diff → favors
+        <span class="pos-text">positive</span>. Negative diff → favors
+        <span class="neg-text">negative</span>.
+      </p>
+      <table id="evidence-table">
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Influence</th>
+            <th>log P(w | pos)</th>
+            <th>log P(w | neg)</th>
+            <th>Diff</th>
+          </tr>
+        </thead>
+        <tbody id="evidence-body"></tbody>
+      </table>
+    </section>
+
+    <!-- Theory callout -->
+    <section class="theory-box">
+      <h3>How it works</h3>
+      <p>
+        Naïve Bayes computes the probability of each class given the input words
+        using Bayes' theorem, assuming each word is <em>independent</em>:
+      </p>
+      <pre>log P(class | words) ∝ log P(class) + Σ log P(word | class)</pre>
+      <p>
+        Words unseen during training are handled with
+        <strong>Laplace smoothing</strong> (α=1), which adds a small count to
+        every word so no probability is ever exactly zero.
+      </p>
+    </section>
+
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

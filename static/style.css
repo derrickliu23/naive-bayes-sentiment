@@ -1,0 +1,256 @@
+/* style.css */
+/* Dark-themed UI consistent with your portfolio aesthetic */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:          #0f1117;
+  --surface:     #1a1d27;
+  --surface-2:   #22263a;
+  --border:      #2e3250;
+  --text:        #e2e8f0;
+  --text-muted:  #7a82a0;
+  --positive:    #4ade80;
+  --negative:    #f87171;
+  --accent:      #818cf8;
+  --radius:      10px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ── Header ── */
+header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+header .subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── Input ── */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 1rem;
+  padding: 0.85rem 1rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+}
+
+button {
+  align-self: flex-end;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.65rem 2rem;
+  transition: opacity 0.2s;
+}
+
+button:hover { opacity: 0.85; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Result banner ── */
+.result-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.result-banner .label {
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.result-banner.is-positive .label { color: var(--positive); }
+.result-banner.is-negative .label { color: var(--negative); }
+
+.result-banner .confidence {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* probability bar */
+.prob-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.prob-bar-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  width: 52px;
+}
+
+.prob-bar-label:last-child { text-align: right; }
+
+.prob-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--surface-2);
+  border-radius: 99px;
+  overflow: hidden;
+  display: flex;
+}
+
+.prob-bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.prob-bar-fill.negative { background: var(--negative); }
+.prob-bar-fill.positive { background: var(--positive); }
+
+/* ── Evidence table ── */
+.evidence-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.evidence-section h2 {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.evidence-explainer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.pos-text { color: var(--positive); font-weight: 600; }
+.neg-text { color: var(--negative); font-weight: 600; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+td.word { font-weight: 600; font-family: monospace; font-size: 0.95rem; }
+td.diff-pos { color: var(--positive); font-weight: 600; }
+td.diff-neg { color: var(--negative); font-weight: 600; }
+
+/* influence bar inside table */
+.influence-bar-track {
+  width: 100px;
+  height: 8px;
+  background: var(--surface-2);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+.influence-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  position: absolute;
+}
+
+/* ── Theory box ── */
+.theory-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.theory-box h3 {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.theory-box p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.theory-box pre {
+  background: var(--surface-2);
+  border-radius: 6px;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  overflow-x: auto;
+}
+
+/* ── Utility ── */
+.hidden { display: none; }
