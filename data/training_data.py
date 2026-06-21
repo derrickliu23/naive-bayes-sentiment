@@ -1,0 +1,61 @@
+# data/training_data.py
+# Labeled training sentences for our Naïve Bayes sentiment classifier.
+# Each entry is a (text, label) tuple where label is "positive" or "negative".
+# In a real system you'd load thousands of examples from a CSV or dataset;
+# here we use a hand-curated set large enough to demonstrate the math clearly.
+
+TRAINING_DATA = [
+    # --- POSITIVE ---
+    ("I loved this movie so much", "positive"),
+    ("An absolutely brilliant film", "positive"),
+    ("The acting was fantastic and the story was gripping", "positive"),
+    ("One of the best films I have ever seen", "positive"),
+    ("Incredibly well made and deeply moving", "positive"),
+    ("A masterpiece of modern cinema", "positive"),
+    ("The characters were compelling and the dialogue sharp", "positive"),
+    ("Funny heartwarming and beautifully acted", "positive"),
+    ("I was on the edge of my seat the entire time", "positive"),
+    ("A delightful and uplifting experience", "positive"),
+    ("Stunning visuals and an emotional soundtrack", "positive"),
+    ("The director did an outstanding job", "positive"),
+    ("I laughed I cried and I left the theater smiling", "positive"),
+    ("Witty clever and thoroughly enjoyable", "positive"),
+    ("A feel good movie that delivers on every level", "positive"),
+    ("The plot was fresh and the ending was satisfying", "positive"),
+    ("Superb performances from the entire cast", "positive"),
+    ("This film exceeded all my expectations", "positive"),
+    ("A wonderful story told with great care and style", "positive"),
+    ("I would highly recommend this to anyone", "positive"),
+    ("This product is amazing and works perfectly", "positive"),
+    ("Excellent quality and fast shipping", "positive"),
+    ("I am so happy with this purchase", "positive"),
+    ("Fantastic value for the price", "positive"),
+    ("Works exactly as described highly satisfied", "positive"),
+
+    # --- NEGATIVE ---
+    ("I hated this movie it was so boring", "negative"),
+    ("A complete waste of time and money", "negative"),
+    ("The plot made no sense whatsoever", "negative"),
+    ("Terrible acting and a dull story", "negative"),
+    ("I fell asleep halfway through", "negative"),
+    ("One of the worst films I have ever seen", "negative"),
+    ("Painfully slow and deeply uninteresting", "negative"),
+    ("The characters were flat and unlikable", "negative"),
+    ("A disappointing mess from start to finish", "negative"),
+    ("I walked out after thirty minutes", "negative"),
+    ("Awful dialogue and a predictable ending", "negative"),
+    ("The director clearly had no idea what they were doing", "negative"),
+    ("A forgettable and deeply frustrating experience", "negative"),
+    ("Nothing about this film worked for me", "negative"),
+    ("Poorly written poorly acted and poorly directed", "negative"),
+    ("I regret watching this it was truly bad", "negative"),
+    ("An incoherent and joyless slog", "negative"),
+    ("The worst movie I have seen in years", "negative"),
+    ("Dull lifeless and a total disappointment", "negative"),
+    ("I cannot recommend this to anyone", "negative"),
+    ("This product broke after one day terrible quality", "negative"),
+    ("Completely useless does not work as advertised", "negative"),
+    ("Very disappointed with this purchase", "negative"),
+    ("Poor quality and slow shipping avoid this", "negative"),
+    ("Stopped working after a week total waste of money", "negative"),
+]
